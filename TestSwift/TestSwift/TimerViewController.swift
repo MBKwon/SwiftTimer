@@ -18,8 +18,13 @@ class TimerViewController: UIViewController {
     var timerDelegate:TimerProtocol?
     var stopWatchTimer:NSTimer?
     
+    var exRunningTime:NSTimeInterval = 0.0
     var runningTime:NSTimeInterval = 0.0
     var stoppedTime:NSTimeInterval = 0.0
+    
+    
+    var startDate:NSDate?
+    var endDate:NSDate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +36,12 @@ class TimerViewController: UIViewController {
             userInfo: nil,
             repeats: true)
         
-        self.timeLabel!.text = "00:00.00"
-        self.timerDelegate = TimerReset(timerController: self)
+        timeLabel!.text = "00:00.00"
+        timerDelegate = TimerReset(timerController: self)
         
-        self.startBtn!.titleLabel.text = "Start"
-        self.resetBtn!.titleLabel.text = "Reset"
-        self.resetBtn!.enabled = false
+        startBtn!.titleLabel.text = "Start"
+        resetBtn!.titleLabel.text = "Reset"
+        resetBtn!.enabled = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,15 +50,40 @@ class TimerViewController: UIViewController {
     }
     
     @IBAction func touchUpStartBtn() {
-        self.timerDelegate!.touchUpStartBtn()
+        timerDelegate!.touchUpStartBtn()
     }
     
     @IBAction func touchUpResetBtn() {
-        self.timerDelegate!.touchUpResetBtn()
+        timerDelegate!.touchUpResetBtn()
     }
     
     func checkTicTime() {
-        NSLog("tic time")
+        
+        if !startDate {
+            startDate = NSDate()
+            
+            if endDate {
+                stoppedTime = startDate!.timeIntervalSinceDate(endDate)
+                endDate = nil
+            }
+        }
+        
+        runningTime = NSDate().timeIntervalSinceDate(startDate)
+        runningTime += exRunningTime
+        timeLabel!.text = String().stringByAppendingFormat("%0.2lf", runningTime-stoppedTime)
+        
+    }
+    
+    func checkStopTime() {
+        exRunningTime = runningTime
+        endDate = NSDate()
+        startDate = nil
+        
+        stopWatchTimer = NSTimer(timeInterval: 0.01,
+            target: self,
+            selector: "checkTicTime",
+            userInfo: nil,
+            repeats: true)
     }
 }
 

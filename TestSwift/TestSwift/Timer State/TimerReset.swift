@@ -27,7 +27,7 @@ class TimerReset : NSObject, TimerProtocol {
     }
     
     func touchUpStartBtn() {
-        self.timerController!.stopWatchTimer?.fire()
+        NSRunLoop.mainRunLoop().addTimer(timerController?.stopWatchTimer, forMode: NSDefaultRunLoopMode)
         self.timerController!.timerDelegate = TimerRunning(timerController: self.timerController);
     }
     

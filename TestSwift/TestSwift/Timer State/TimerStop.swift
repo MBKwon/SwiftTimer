@@ -24,6 +24,7 @@ class TimerStop : NSObject, TimerProtocol {
     }
     
     func touchUpStartBtn() {
+        NSRunLoop.mainRunLoop().addTimer(timerController?.stopWatchTimer, forMode: NSDefaultRunLoopMode)
         self.timerController!.timerDelegate = TimerRunning(timerController: self.timerController);
     }
     
