@@ -8,13 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TimerViewController: UIViewController {
     
     @IBOutlet var timeLabel:UILabel?
     @IBOutlet var startBtn:UIButton?
     @IBOutlet var stopBtn:UIButton?
     
     var timerDelegate:TimerProtocol?
+    
+    var runningTime:NSTimeInterval = 0.0
+    var stoppedTime:NSTimeInterval = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()

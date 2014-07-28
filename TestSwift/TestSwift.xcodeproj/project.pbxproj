@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		FE66D3911981EB9200E77537 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66D3901981EB9200E77537 /* AppDelegate.swift */; };
 		FE66D3941981EB9200E77537 /* TestSwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE66D3921981EB9200E77537 /* TestSwift.xcdatamodeld */; };
-		FE66D3961981EB9200E77537 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66D3951981EB9200E77537 /* ViewController.swift */; };
+		FE66D3961981EB9200E77537 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66D3951981EB9200E77537 /* TimerViewController.swift */; };
 		FE66D3991981EB9200E77537 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE66D3971981EB9200E77537 /* Main.storyboard */; };
 		FE66D39B1981EB9200E77537 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE66D39A1981EB9200E77537 /* Images.xcassets */; };
 		FE66D3A71981EB9200E77537 /* TestSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66D3A61981EB9200E77537 /* TestSwiftTests.swift */; };
@@ -34,7 +34,7 @@
 		FE66D38F1981EB9200E77537 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE66D3901981EB9200E77537 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE66D3931981EB9200E77537 /* TestSwift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestSwift.xcdatamodel; sourceTree = "<group>"; };
-		FE66D3951981EB9200E77537 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FE66D3951981EB9200E77537 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		FE66D3981981EB9200E77537 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE66D39A1981EB9200E77537 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FE66D3A01981EB9200E77537 /* TestSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,7 +87,7 @@
 			children = (
 				FEF2645919863390008249B0 /* Timer State */,
 				FE66D3901981EB9200E77537 /* AppDelegate.swift */,
-				FE66D3951981EB9200E77537 /* ViewController.swift */,
+				FE66D3951981EB9200E77537 /* TimerViewController.swift */,
 				FE66D3971981EB9200E77537 /* Main.storyboard */,
 				FE66D39A1981EB9200E77537 /* Images.xcassets */,
 				FE66D3921981EB9200E77537 /* TestSwift.xcdatamodeld */,
@@ -233,7 +233,7 @@
 			files = (
 				FEF2645D19863423008249B0 /* TimerRunning.swift in Sources */,
 				FEF2646319863453008249B0 /* TimerStop.swift in Sources */,
-				FE66D3961981EB9200E77537 /* ViewController.swift in Sources */,
+				FE66D3961981EB9200E77537 /* TimerViewController.swift in Sources */,
 				FEF2645B198633B3008249B0 /* TimerProtocol.swift in Sources */,
 				FE66D3911981EB9200E77537 /* AppDelegate.swift in Sources */,
 				FEF2646119863441008249B0 /* TimerReset.swift in Sources */,

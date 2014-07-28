@@ -11,11 +11,14 @@ import UIKit
 
 class TimerStop : NSObject, TimerProtocol {
     
-    weak var timerContoller:UIViewController?
+    weak var timerContoller:TimerViewController?
     
-    init(timerContoller: UIViewController!) {
+    init(timerContoller: TimerViewController!) {
         if timerContoller {
             self.timerContoller = timerContoller
+            
+            self.timerContoller!.startBtn!.titleLabel.text = "Start"
+            self.timerContoller!.startBtn!.titleLabel.text = "Reset"
         }
     }
     
