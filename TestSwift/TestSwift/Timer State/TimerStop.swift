@@ -16,9 +16,10 @@ class TimerStop : NSObject, TimerProtocol {
     init(timerController: TimerViewController!) {
         if timerController {
             self.timerController = timerController
+            self.timerController!.stateLabel!.text = "Stop State"
             
-            self.timerController!.startBtn!.titleLabel.text = "Start"
-            self.timerController!.resetBtn!.titleLabel.text = "Reset"
+            self.timerController!.startBtn!.setTitle("Restart", forState: UIControlState.Normal)
+            self.timerController!.resetBtn!.setTitle("Reset", forState: UIControlState.Normal)
         }
     }
     

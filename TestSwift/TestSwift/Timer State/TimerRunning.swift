@@ -16,9 +16,10 @@ class TimerRunning : NSObject, TimerProtocol {
     init(timerController: TimerViewController!) {
         if timerController {
             self.timerController = timerController
+            self.timerController!.stateLabel!.text = "Running State"
             
-            self.timerController!.startBtn!.titleLabel.text = "Stop"
-            self.timerController!.resetBtn!.titleLabel.text = "Lap"
+            self.timerController!.startBtn!.setTitle("Stop", forState: UIControlState.Normal)
+            self.timerController!.resetBtn!.setTitle("Lap", forState: UIControlState.Normal)
             self.timerController!.resetBtn!.enabled = true
         }
     }
@@ -28,6 +29,6 @@ class TimerRunning : NSObject, TimerProtocol {
     }
     
     func touchUpResetBtn() {
-        
+        // record lap time
     }
 }

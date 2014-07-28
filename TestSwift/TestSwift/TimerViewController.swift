@@ -10,11 +10,13 @@ import UIKit
 
 class TimerViewController: UIViewController {
     
+    @IBOutlet var stateLabel:UILabel?
     @IBOutlet var timeLabel:UILabel?
     @IBOutlet var startBtn:UIButton?
     @IBOutlet var resetBtn:UIButton?
     
     var timerDelegate:TimerProtocol?
+    var stopWatchTimer:NSTimer?
     
     var runningTime:NSTimeInterval = 0.0
     var stoppedTime:NSTimeInterval = 0.0
@@ -23,8 +25,18 @@ class TimerViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        stopWatchTimer = NSTimer(timeInterval: 0.01,
+            target: self,
+            selector: "checkTicTime",
+            userInfo: nil,
+            repeats: true)
+        
         self.timeLabel!.text = "00:00.00"
         self.timerDelegate = TimerReset(timerController: self)
+        
+        self.startBtn!.titleLabel.text = "Start"
+        self.resetBtn!.titleLabel.text = "Reset"
+        self.resetBtn!.enabled = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -38,6 +50,10 @@ class TimerViewController: UIViewController {
     
     @IBAction func touchUpResetBtn() {
         self.timerDelegate!.touchUpResetBtn()
+    }
+    
+    func checkTicTime() {
+        NSLog("tic time")
     }
 }
 

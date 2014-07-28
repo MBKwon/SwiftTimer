@@ -16,16 +16,18 @@ class TimerReset : NSObject, TimerProtocol {
     init(timerController: TimerViewController!) {
         if timerController {
             self.timerController = timerController
+            self.timerController!.stateLabel!.text = "Reset State"
             self.timerController!.runningTime = 0.0
             self.timerController!.stoppedTime = 0.0
             
-            self.timerController!.startBtn!.titleLabel.text = "Start"
-            self.timerController!.resetBtn!.titleLabel.text = "Reset"
+            self.timerController!.startBtn!.setTitle("Start", forState: UIControlState.Normal)
+            self.timerController!.resetBtn!.setTitle("Reset", forState: UIControlState.Normal)
             self.timerController!.resetBtn!.enabled = false
         }
     }
     
     func touchUpStartBtn() {
+        self.timerController!.stopWatchTimer?.fire()
         self.timerController!.timerDelegate = TimerRunning(timerController: self.timerController);
     }
     
