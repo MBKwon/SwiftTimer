@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.timerDelegate = TimerReset()
+        self.timerDelegate = TimerReset(timerContoller: self)
         
         self.timeLabel!.text = "00:00.00"
         self.startBtn!.titleLabel.text = "start"

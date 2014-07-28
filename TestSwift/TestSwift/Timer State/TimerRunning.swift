@@ -7,8 +7,17 @@
 //
 
 import Foundation
+import UIKit
 
 class TimerRunning : NSObject, TimerProtocol {
+    
+    weak var timerContoller:UIViewController?
+    
+    init(timerContoller: UIViewController!) {
+        if timerContoller {
+            self.timerContoller = timerContoller
+        }
+    }
     
     func touchUpStartBtn() {
         
