@@ -37,13 +37,9 @@
                                     <rect key="frame" x="200" y="169" width="100" height="30"/>
                                 </variation>
                                 <connections>
-                                    <action selector="touchUpStopBtn" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FGm-oF-ndw"/>
+                                    <action selector="touchUpResetBtn" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qKO-Ae-vFw"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xit-L6-jyb">
-                                <rect key="frame" x="0.0" y="242" width="320" height="326"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HH:MM:SS.mm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eF2-mG-BOS">
                                 <rect key="frame" x="20" y="87" width="280" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -53,6 +49,10 @@
                                     <rect key="frame" x="20" y="72" width="280" height="89"/>
                                 </variation>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xit-L6-jyb">
+                                <rect key="frame" x="0.0" y="242" width="320" height="326"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">

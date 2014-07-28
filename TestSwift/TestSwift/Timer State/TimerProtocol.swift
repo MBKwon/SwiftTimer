@@ -11,5 +11,5 @@ import Foundation
 protocol TimerProtocol {
     
     func touchUpStartBtn()
-    func touchUpStopBtn()
+    func touchUpResetBtn()
 }

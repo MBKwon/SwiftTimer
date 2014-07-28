@@ -23,10 +23,10 @@ class TimerRunning : NSObject, TimerProtocol {
     }
     
     func touchUpStartBtn() {
-        
+        self.timerContoller!.timerDelegate = TimerStop(timerContoller: self.timerContoller);
     }
     
-    func touchUpStopBtn() {
+    func touchUpResetBtn() {
         
     }
 }

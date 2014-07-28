@@ -39,8 +39,8 @@ class TimerViewController: UIViewController {
         self.timerDelegate!.touchUpStartBtn()
     }
     
-    @IBAction func touchUpStopBtn() {
-        self.timerDelegate!.touchUpStopBtn()
+    @IBAction func touchUpResetBtn() {
+        self.timerDelegate!.touchUpResetBtn()
     }
 }
 
