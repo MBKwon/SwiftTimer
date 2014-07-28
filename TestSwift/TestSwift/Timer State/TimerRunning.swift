@@ -11,19 +11,20 @@ import UIKit
 
 class TimerRunning : NSObject, TimerProtocol {
     
-    weak var timerContoller:TimerViewController?
+    weak var timerController:TimerViewController?
     
-    init(timerContoller: TimerViewController!) {
-        if timerContoller {
-            self.timerContoller = timerContoller
+    init(timerController: TimerViewController!) {
+        if timerController {
+            self.timerController = timerController
             
-            self.timerContoller!.startBtn!.titleLabel.text = "Stop"
-            self.timerContoller!.startBtn!.titleLabel.text = "Lap"
+            self.timerController!.startBtn!.titleLabel.text = "Stop"
+            self.timerController!.resetBtn!.titleLabel.text = "Lap"
+            self.timerController!.resetBtn!.enabled = true
         }
     }
     
     func touchUpStartBtn() {
-        self.timerContoller!.timerDelegate = TimerStop(timerContoller: self.timerContoller);
+        self.timerController!.timerDelegate = TimerStop(timerController: self.timerController);
     }
     
     func touchUpResetBtn() {

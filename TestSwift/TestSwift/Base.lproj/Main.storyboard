@@ -76,9 +76,9 @@
                         <size key="landscapeSize" width="568" height="320"/>
                     </simulatedScreenMetrics>
                     <connections>
-                        <outlet property="startBtn" destination="WiW-t3-uWY" id="7ZV-R3-Iw6"/>
-                        <outlet property="stopBtn" destination="ZXN-Wy-Oha" id="I2o-E3-uDM"/>
-                        <outlet property="timeLabel" destination="eF2-mG-BOS" id="c3o-Fx-z7P"/>
+                        <outlet property="resetBtn" destination="ZXN-Wy-Oha" id="sSX-Gc-qrK"/>
+                        <outlet property="startBtn" destination="WiW-t3-uWY" id="gsA-Jt-Ly1"/>
+                        <outlet property="timeLabel" destination="eF2-mG-BOS" id="Z25-Si-vp5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

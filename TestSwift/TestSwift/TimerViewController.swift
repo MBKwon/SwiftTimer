@@ -12,7 +12,7 @@ class TimerViewController: UIViewController {
     
     @IBOutlet var timeLabel:UILabel?
     @IBOutlet var startBtn:UIButton?
-    @IBOutlet var stopBtn:UIButton?
+    @IBOutlet var resetBtn:UIButton?
     
     var timerDelegate:TimerProtocol?
     
@@ -23,11 +23,8 @@ class TimerViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.timerDelegate = TimerReset(timerContoller: self)
-        
         self.timeLabel!.text = "00:00.00"
-        self.startBtn!.titleLabel.text = "start"
-        self.stopBtn!.titleLabel.text = "reset"
+        self.timerDelegate = TimerReset(timerController: self)
     }
     
     override func didReceiveMemoryWarning() {
