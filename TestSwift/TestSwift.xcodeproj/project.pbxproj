@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FE4066EB198720AC000EC6D1 /* TimeLapRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4066EA198720AC000EC6D1 /* TimeLapRecord.swift */; };
+		FE4066EE19872905000EC6D1 /* TimeLapRecord_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4066ED19872905000EC6D1 /* TimeLapRecord_Extension.swift */; };
 		FE66D3911981EB9200E77537 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66D3901981EB9200E77537 /* AppDelegate.swift */; };
 		FE66D3941981EB9200E77537 /* TestSwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE66D3921981EB9200E77537 /* TestSwift.xcdatamodeld */; };
 		FE66D3961981EB9200E77537 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66D3951981EB9200E77537 /* TimerViewController.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		FE4066E9198720AB000EC6D1 /* TestSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		FE4066EA198720AC000EC6D1 /* TimeLapRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeLapRecord.swift; path = CoreData/TimeLapRecord.swift; sourceTree = "<group>"; };
+		FE4066ED19872905000EC6D1 /* TimeLapRecord_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeLapRecord_Extension.swift; path = CoreData/TimeLapRecord_Extension.swift; sourceTree = "<group>"; };
 		FE66D38B1981EB9200E77537 /* TestSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE66D38F1981EB9200E77537 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE66D3901981EB9200E77537 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			children = (
 				FE66D3921981EB9200E77537 /* TestSwift.xcdatamodeld */,
 				FE4066EA198720AC000EC6D1 /* TimeLapRecord.swift */,
+				FE4066ED19872905000EC6D1 /* TimeLapRecord_Extension.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE4066EE19872905000EC6D1 /* TimeLapRecord_Extension.swift in Sources */,
 				FEF2645D19863423008249B0 /* TimerRunning.swift in Sources */,
 				FE4066EB198720AC000EC6D1 /* TimeLapRecord.swift in Sources */,
 				FEF2646319863453008249B0 /* TimerStop.swift in Sources */,
