@@ -10,19 +10,19 @@ import UIKit
 
 class TimerViewController: UIViewController {
     
-    @IBOutlet var stateLabel:UILabel?
-    @IBOutlet var timeLabel:UILabel?
-    @IBOutlet var startBtn:UIButton?
-    @IBOutlet var resetBtn:UIButton?
+    @IBOutlet var stateLabel: UILabel?
+    @IBOutlet var timeLabel: UILabel?
+    @IBOutlet var startBtn: UIButton?
+    @IBOutlet var resetBtn: UIButton?
     
-    var timerDelegate:TimerProtocol?
-    var stopWatchTimer:NSTimer?
+    var timerDelegate: TimerProtocol?
+    var stopWatchTimer: NSTimer?
     
-    var exRunningTime:NSTimeInterval = 0.0
-    var runningTime:NSTimeInterval = 0.0
-    var stoppedTime:NSTimeInterval = 0.0
+    var exRunningTime: NSTimeInterval = 0.0
+    var runningTime: NSTimeInterval = 0.0
+    var stoppedTime: NSTimeInterval = 0.0
     
-    var startDate:NSDate?
+    var startDate: NSDate?
     
     
     override func viewDidLoad() {

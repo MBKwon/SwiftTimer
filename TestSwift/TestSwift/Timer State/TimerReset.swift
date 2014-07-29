@@ -11,7 +11,7 @@ import UIKit
 
 class TimerReset : NSObject, TimerProtocol {
     
-    weak var timerController:TimerViewController?
+    weak var timerController: TimerViewController?
     
     init(timerController: TimerViewController!) {
         if timerController {
