@@ -22,9 +22,8 @@ class TimerViewController: UIViewController {
     var runningTime:NSTimeInterval = 0.0
     var stoppedTime:NSTimeInterval = 0.0
     
-    
     var startDate:NSDate?
-    var endDate:NSDate?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +35,7 @@ class TimerViewController: UIViewController {
             userInfo: nil,
             repeats: true)
         
-        timeLabel!.text = "00:00.00"
+        timeLabel!.text = "00.00"
         timerDelegate = TimerReset(timerController: self)
         
         startBtn!.titleLabel.text = "Start"
@@ -61,11 +60,6 @@ class TimerViewController: UIViewController {
         
         if !startDate {
             startDate = NSDate()
-            
-            if endDate {
-                stoppedTime = startDate!.timeIntervalSinceDate(endDate)
-                endDate = nil
-            }
         }
         
         runningTime = NSDate().timeIntervalSinceDate(startDate)
@@ -76,7 +70,6 @@ class TimerViewController: UIViewController {
     
     func checkStopTime() {
         exRunningTime = runningTime
-        endDate = NSDate()
         startDate = nil
         
         stopWatchTimer = NSTimer(timeInterval: 0.01,

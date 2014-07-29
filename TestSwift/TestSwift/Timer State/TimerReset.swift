@@ -17,6 +17,8 @@ class TimerReset : NSObject, TimerProtocol {
         if timerController {
             self.timerController = timerController
             self.timerController!.stateLabel!.text = "Reset State"
+            
+            self.timerController!.timeLabel!.text = "00.00"
             self.timerController!.runningTime = 0.0
             self.timerController!.stoppedTime = 0.0
             
