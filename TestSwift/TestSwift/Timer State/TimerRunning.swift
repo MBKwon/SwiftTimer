@@ -25,7 +25,7 @@ class TimerRunning : NSObject, TimerProtocol {
     }
     
     func touchUpStartBtn() {
-        timerController?.stopWatchTimer?.invalidate()
+        timerController?.stopWatchTimer.invalidate()
         timerController?.checkStopTime()
         self.timerController!.timerDelegate = TimerStop(timerController: self.timerController);
     }

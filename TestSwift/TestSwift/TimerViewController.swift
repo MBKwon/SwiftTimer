@@ -16,7 +16,14 @@ class TimerViewController: UIViewController {
     @IBOutlet var resetBtn: UIButton?
     
     var timerDelegate: TimerProtocol?
-    var stopWatchTimer: NSTimer?
+    var stopWatchTimer: NSTimer {
+    
+    return NSTimer(timeInterval: 0.01,
+        target: self,
+        selector: "checkTicTime",
+        userInfo: nil,
+        repeats: true)
+    }
     
     var exRunningTime: NSTimeInterval = 0.0
     var runningTime: NSTimeInterval = 0.0
@@ -28,12 +35,6 @@ class TimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        stopWatchTimer = NSTimer(timeInterval: 0.01,
-            target: self,
-            selector: "checkTicTime",
-            userInfo: nil,
-            repeats: true)
         
         timeLabel!.text = "00.00"
         timerDelegate = TimerReset(timerController: self)
