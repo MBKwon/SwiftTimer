@@ -10,9 +10,9 @@ import Foundation
 
 class CoreDataAssistant: NSObject {
     
-    var mainMOC: NSManagedObjectContext = NSManagedObjectContext()
-    var persistantMOC: NSManagedObjectContext = NSManagedObjectContext()
-    
-    func init(dbName: String) {
-    }
+//    var mainMOC: NSManagedObjectContext = NSManagedObjectContext()
+//    var persistantMOC: NSManagedObjectContext = NSManagedObjectContext()
+//    
+//    func init(dbName: String) {
+//    }
 }
