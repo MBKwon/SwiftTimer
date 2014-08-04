@@ -40,7 +40,7 @@
                                     <action selector="touchUpResetBtn" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qxN-Ix-Btj"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xit-L6-jyb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xit-L6-jyb" customClass="LapTimeTableView" customModule="TestSwift" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="242" width="320" height="326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -59,6 +59,7 @@
                         <size key="landscapeSize" width="568" height="320"/>
                     </simulatedScreenMetrics>
                     <connections>
+                        <outlet property="lapTimeTableView" destination="xit-L6-jyb" id="pdV-3f-hTr"/>
                         <outlet property="resetBtn" destination="7dQ-tP-Uh7" id="ZLo-xi-m8a"/>
                         <outlet property="startBtn" destination="sQp-fC-WnB" id="GLG-c1-1Em"/>
                         <outlet property="stateLabel" destination="wxL-F5-oHR" id="npE-Af-f54"/>

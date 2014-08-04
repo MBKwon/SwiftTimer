@@ -29,4 +29,41 @@ class CoreDataAssistant: NSObject {
         
         return self.managedObjectContext
     }
+    
+    var backgroundContext: NSManagedObjectContext {
+    
+    var objectContext: NSManagedObjectContext
+        
+        if self.backgroundContext == nil {
+            let coordinator = self.store.persistentStoreCoordinator
+            if coordinator != nil {
+                objectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.PrivateQueueConcurrencyType)
+                objectContext.persistentStoreCoordinator = coordinator
+                
+                return objectContext
+            }
+        }
+        
+        return self.backgroundContext
+    }
+    
+    
+    // save NSManagedObjectContext
+    func saveContext (context: NSManagedObjectContext) {
+        var error: NSError? = nil
+        if context != nil {
+            if context.hasChanges && !context.save(&error) {
+                // Replace this implementation with code to handle the error appropriately.
+                // abort() causes the application to generate a crash log and terminate. 
+                // You should not use this function in a shipping application, although it may be useful during development.
+                
+                NSLog("Unresolved error \(error)")
+                abort()
+            }
+        }
+    }
+    
+    func saveContext () {
+        self.saveContext(self.backgroundContext)
+    }
 }

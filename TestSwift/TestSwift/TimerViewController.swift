@@ -15,6 +15,9 @@ class TimerViewController: UIViewController {
     @IBOutlet var startBtn: UIButton?
     @IBOutlet var resetBtn: UIButton?
     
+    @IBOutlet var lapTimeTableView: LapTimeTableView?
+    
+    
     var timerDelegate: TimerProtocol?
     var stopWatchTimer: NSTimer?
 //    {
@@ -36,6 +39,9 @@ class TimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        lapTimeTableView!.dataSource = lapTimeTableView
+        lapTimeTableView!.delegate = lapTimeTableView
         
         timeLabel!.text = "00.00"
         timerDelegate = TimerReset(timerController: self)

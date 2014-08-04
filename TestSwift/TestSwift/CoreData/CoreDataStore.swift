@@ -14,8 +14,19 @@ class CoreDataStore: NSObject {
     let storeName = "SwiftTimerTimeCoreData"
     let storeFileName = "SwiftTimerTimeCoreData.sqlite"
     
-    var managedObjectModel: NSManagedObjectModel {
+    init() {
+        super.init()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "contextDidSaveContext:", name: NSManagedObjectContextDidSaveNotification, object: nil)
+    }
     
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func contextDidSaveContext(notification: NSNotification) {
+    }
+    
+    var managedObjectModel: NSManagedObjectModel {
     var objectModel: NSManagedObjectModel
         
         if self.managedObjectModel == nil {
@@ -30,8 +41,6 @@ class CoreDataStore: NSObject {
     }
     
     var persistentStoreCoordinator: NSPersistentStoreCoordinator {
-    
-    
     var persistentCoordinator: NSPersistentStoreCoordinator
         if self.persistentStoreCoordinator == nil {
             
