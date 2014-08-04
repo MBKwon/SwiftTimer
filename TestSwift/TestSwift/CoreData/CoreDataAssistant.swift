@@ -11,18 +11,22 @@ import CoreData
 
 class CoreDataAssistant: NSObject {
     
-    var persistentStoreCoordinator: NSPersistentStoreCoordinator {
-    
-    }
+    var store: CoreDataStore = CoreDataStore()
     
     var managedObjectContext: NSManagedObjectContext {
-    if managedObjectContext == nil {
-        let coordinator = self.store.persistentStoreCoordinator
-        if coordinator != nil {
-            managedObjectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
-            managedObjectContext!.persistentStoreCoordinator = coordinator
+    
+    var objectContext: NSManagedObjectContext
+        
+        if self.managedObjectContext == nil {
+            let coordinator = self.store.persistentStoreCoordinator
+            if coordinator != nil {
+                objectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
+                objectContext.persistentStoreCoordinator = coordinator
+                
+                return objectContext
+            }
         }
-        }
-        return_managedObjectContext!
+        
+        return self.managedObjectContext
     }
 }

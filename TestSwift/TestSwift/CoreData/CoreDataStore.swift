@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class CoreDtaStore: NSObject {
+class CoreDataStore: NSObject {
     
     let storeName = "SwiftTimerTimeCoreData"
     let storeFileName = "SwiftTimerTimeCoreData.sqlite"
