@@ -43,6 +43,8 @@ class TimerViewController: UIViewController {
         lapTimeTableView!.dataSource = lapTimeTableView
         lapTimeTableView!.delegate = lapTimeTableView
         
+        NSNotificationCenter.defaultCenter().addObserver(lapTimeTableView, selector: "reloadData", name: RELOAD_LAPTIME_TABLEVIEW, object: nil)
+        
         timeLabel!.text = "00.00"
         timerDelegate = TimerReset(timerController: self)
         

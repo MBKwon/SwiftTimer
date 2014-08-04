@@ -59,6 +59,8 @@ class CoreDataAssistant: NSObject {
                 
                 NSLog("Unresolved error \(error)")
                 abort()
+            } else if error == nil {
+                NSNotificationCenter.defaultCenter().postNotificationName(RELOAD_LAPTIME_TABLEVIEW, object: nil)
             }
         }
     }
