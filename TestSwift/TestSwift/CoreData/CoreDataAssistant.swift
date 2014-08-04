@@ -7,12 +7,22 @@
 //
 
 import Foundation
+import CoreData
 
 class CoreDataAssistant: NSObject {
     
-//    var mainMOC: NSManagedObjectContext = NSManagedObjectContext()
-//    var persistantMOC: NSManagedObjectContext = NSManagedObjectContext()
-//    
-//    func init(dbName: String) {
-//    }
+    var persistentStoreCoordinator: NSPersistentStoreCoordinator {
+    
+    }
+    
+    var managedObjectContext: NSManagedObjectContext {
+    if managedObjectContext == nil {
+        let coordinator = self.store.persistentStoreCoordinator
+        if coordinator != nil {
+            managedObjectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
+            managedObjectContext!.persistentStoreCoordinator = coordinator
+        }
+        }
+        return_managedObjectContext!
+    }
 }

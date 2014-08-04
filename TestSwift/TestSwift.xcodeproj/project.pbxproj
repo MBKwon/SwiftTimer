@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE2E1B48198F5A7500C76C54 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E1B47198F5A7500C76C54 /* CoreDataStore.swift */; };
 		FE4066EB198720AC000EC6D1 /* TimeLapRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4066EA198720AC000EC6D1 /* TimeLapRecord.swift */; };
 		FE4066EE19872905000EC6D1 /* TimeLapRecord_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4066ED19872905000EC6D1 /* TimeLapRecord_Extension.swift */; };
 		FE4066F0198785C9000EC6D1 /* CoreDataAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4066EF198785C9000EC6D1 /* CoreDataAssistant.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE2E1B47198F5A7500C76C54 /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStore.swift; path = CoreData/CoreDataStore.swift; sourceTree = "<group>"; };
 		FE4066E9198720AB000EC6D1 /* TestSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		FE4066EA198720AC000EC6D1 /* TimeLapRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeLapRecord.swift; path = CoreData/TimeLapRecord.swift; sourceTree = "<group>"; };
 		FE4066ED19872905000EC6D1 /* TimeLapRecord_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeLapRecord_Extension.swift; path = CoreData/TimeLapRecord_Extension.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				FE4066EA198720AC000EC6D1 /* TimeLapRecord.swift */,
 				FE4066ED19872905000EC6D1 /* TimeLapRecord_Extension.swift */,
 				FE4066EF198785C9000EC6D1 /* CoreDataAssistant.swift */,
+				FE2E1B47198F5A7500C76C54 /* CoreDataStore.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				FE4066EE19872905000EC6D1 /* TimeLapRecord_Extension.swift in Sources */,
 				FEF2645D19863423008249B0 /* TimerRunning.swift in Sources */,
 				FE4066EB198720AC000EC6D1 /* TimeLapRecord.swift in Sources */,
+				FE2E1B48198F5A7500C76C54 /* CoreDataStore.swift in Sources */,
 				FEF2646319863453008249B0 /* TimerStop.swift in Sources */,
 				FE66D3961981EB9200E77537 /* TimerViewController.swift in Sources */,
 				FE4066F0198785C9000EC6D1 /* CoreDataAssistant.swift in Sources */,
