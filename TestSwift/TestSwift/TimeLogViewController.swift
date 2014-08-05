@@ -38,6 +38,7 @@ class TimeLogViewController: UIViewController, UITableViewDataSource, UITableVie
         if roundList?.count > indexPath.row {
             var dataModel: TimeLapRecord = roundList?[indexPath.row] as TimeLapRecord
             var currentCalendar: NSCalendar = NSCalendar.currentCalendar()
+            var currentDate: NSDate = NSDate(timeIntervalSince1970: dataModel.roundtimestamp)
             
             var dateComponents: NSDateComponents = currentCalendar.components(
                 NSCalendarUnit.CalendarUnitYear |
@@ -46,7 +47,7 @@ class TimeLogViewController: UIViewController, UITableViewDataSource, UITableVie
                     NSCalendarUnit.CalendarUnitHour |
                     NSCalendarUnit.CalendarUnitMinute |
                     NSCalendarUnit.CalendarUnitSecond,
-                fromDate: dataModel.roundname)
+                fromDate: currentDate)
             
             var dateString: String = String().stringByAppendingFormat("%d년 %d월 %d일 %d시 %d분 %d초",
                 dateComponents.year,

@@ -13,14 +13,16 @@ class LapTimeTableView: UITableView, UITableViewDataSource, UITableViewDelegate 
     
     weak var timerController: TimerViewController?
     
-    var roundList: NSArray? = nil
+    var lapTimeList: NSArray? = nil
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         
-        roundList = timerController?.coreDataHelper.fetchAllRound()
+        var lapTimes: TimeLapRecord = timerController?.coreDataHelper.fetchLatestRound()
         
-        if roundList != nil {
-            return roundList!.count;
+        lapTimeList = lapTimes.getLapTimeList()
+        
+        if lapTimeList != nil {
+            return lapTimeList!.count;
             
         } else {
             return 0
@@ -31,9 +33,10 @@ class LapTimeTableView: UITableView, UITableViewDataSource, UITableViewDelegate 
         
         var cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "lapTimeTableViewCell")
         
-        if roundList?.count > indexPath.row {
-            var dataModel: TimeLapRecord = roundList?[indexPath.row] as TimeLapRecord
+        if lapTimeList?.count > indexPath.row {
+            var dataModel: TimeLapRecord = lapTimeList?[indexPath.row] as TimeLapRecord
             var currentCalendar: NSCalendar = NSCalendar.currentCalendar()
+            var currentDate: NSDate = NSDate(timeIntervalSince1970: dataModel.roundtimestamp)
             
             var dateComponents: NSDateComponents = currentCalendar.components(
                 NSCalendarUnit.CalendarUnitYear |
@@ -42,7 +45,7 @@ class LapTimeTableView: UITableView, UITableViewDataSource, UITableViewDelegate 
                 NSCalendarUnit.CalendarUnitHour |
                 NSCalendarUnit.CalendarUnitMinute |
                 NSCalendarUnit.CalendarUnitSecond,
-                fromDate: dataModel.roundname)
+                fromDate: currentDate)
             
             var dateString: String = String().stringByAppendingFormat("%d년 %d월 %d일 %d시 %d분 %d초",
                 dateComponents.year,

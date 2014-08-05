@@ -10,8 +10,8 @@ import Foundation
 
 extension TimeLapRecord {
     
-    func setNewRecordRound(roundName: NSDate) {
-        self.roundname = roundName
+    func setNewRecordRound(date: NSDate) {
+        self.roundtimestamp = date.timeIntervalSince1970
     }
     
     func addNewLapTime(newLapTime: NSString) {

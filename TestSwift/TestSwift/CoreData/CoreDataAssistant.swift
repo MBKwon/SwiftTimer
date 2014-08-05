@@ -45,21 +45,20 @@ class CoreDataAssistant: NSObject {
         return _backgroundContext!
     }
     
-    func fetchLatestRound() -> NSArray {
+    func fetchLatestRound() -> TimeLapRecord {
         
-        var resultList: NSArray = NSArray()
+        var latestRecord: TimeLapRecord = TimeLapRecord()
         
         var fetchRequest: NSFetchRequest = NSFetchRequest(entityName: "TimeLapRecord")
         if fetchRequest != nil {
-            var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "laptime", ascending: true)
+            var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "roundtimestamp", ascending: true)
             fetchRequest.sortDescriptors = [sortDescriptor]
             
-            resultList = managedObjectContext.executeFetchRequest(fetchRequest, error: nil)
-            
-            return resultList
+            var resultList: NSArray = managedObjectContext.executeFetchRequest(fetchRequest, error: nil)
+            return resultList.lastObject as TimeLapRecord
         }
         
-        return resultList
+        return latestRecord
     }
     
     func fetchAllRound() -> NSArray {
@@ -68,7 +67,7 @@ class CoreDataAssistant: NSObject {
         
         var fetchRequest: NSFetchRequest = NSFetchRequest(entityName: "TimeLapRecord")
         if fetchRequest != nil {
-            var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "laptime", ascending: true)
+            var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "roundtimestamp", ascending: true)
             fetchRequest.sortDescriptors = [sortDescriptor]
             
             resultList = managedObjectContext.executeFetchRequest(fetchRequest, error: nil)

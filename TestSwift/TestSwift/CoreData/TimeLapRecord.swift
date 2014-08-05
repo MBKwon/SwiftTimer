@@ -12,6 +12,6 @@ import CoreData
 class TimeLapRecord: NSManagedObject {
 
     @NSManaged var laptime: NSData
-    @NSManaged var roundname: NSDate
+    @NSManaged var roundtimestamp: Double
 
 }
