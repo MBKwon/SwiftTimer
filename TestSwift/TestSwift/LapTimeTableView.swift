@@ -17,16 +17,19 @@ class LapTimeTableView: UITableView, UITableViewDataSource, UITableViewDelegate 
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         
-        var lapTimes: TimeLapRecord = timerController?.coreDataHelper.fetchLatestRound()
-        
-        lapTimeList = lapTimes.getLapTimeList()
-        
-        if lapTimeList != nil {
-            return lapTimeList!.count;
+        if timerController?.coreDataHelper.isExistAnyRecord() == true {
+            var lapTimes: TimeLapRecord = timerController!.coreDataHelper.fetchLatestRound()
             
-        } else {
-            return 0
+            if lapTimes != nil {
+                lapTimeList = lapTimes.getLapTimeList()
+                if lapTimeList != nil {
+                    return lapTimeList!.count;
+                    
+                }
+            }
         }
+        
+        return 0
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
@@ -40,11 +43,11 @@ class LapTimeTableView: UITableView, UITableViewDataSource, UITableViewDelegate 
             
             var dateComponents: NSDateComponents = currentCalendar.components(
                 NSCalendarUnit.CalendarUnitYear |
-                NSCalendarUnit.CalendarUnitMonth |
-                NSCalendarUnit.CalendarUnitDay |
-                NSCalendarUnit.CalendarUnitHour |
-                NSCalendarUnit.CalendarUnitMinute |
-                NSCalendarUnit.CalendarUnitSecond,
+                    NSCalendarUnit.CalendarUnitMonth |
+                    NSCalendarUnit.CalendarUnitDay |
+                    NSCalendarUnit.CalendarUnitHour |
+                    NSCalendarUnit.CalendarUnitMinute |
+                    NSCalendarUnit.CalendarUnitSecond,
                 fromDate: currentDate)
             
             var dateString: String = String().stringByAppendingFormat("%d년 %d월 %d일 %d시 %d분 %d초",

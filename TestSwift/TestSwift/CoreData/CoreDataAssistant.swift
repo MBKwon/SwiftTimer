@@ -24,9 +24,9 @@ class CoreDataAssistant: NSObject {
                 
                 return _managedObjectContext!
             }
-        }
-        
-        return _managedObjectContext!
+            }
+            
+            return _managedObjectContext!
     }
     
     
@@ -40,9 +40,25 @@ class CoreDataAssistant: NSObject {
                 
                 return _backgroundContext!
             }
+            }
+            
+            return _backgroundContext!
+    }
+    
+    
+    func isExistAnyRecord() -> Bool {
+        
+        var fetchRequest: NSFetchRequest = NSFetchRequest(entityName: "TimeLapRecord")
+        if fetchRequest != nil {
+            fetchRequest.fetchLimit = 1
+            
+            var resultArray: NSArray = managedObjectContext.executeFetchRequest(fetchRequest, error: nil)
+            if resultArray.count > 0 {
+                return true
+            }
         }
         
-        return _backgroundContext!
+        return false
     }
     
     func fetchLatestRound() -> TimeLapRecord {
@@ -55,7 +71,11 @@ class CoreDataAssistant: NSObject {
             fetchRequest.sortDescriptors = [sortDescriptor]
             
             var resultList: NSArray = managedObjectContext.executeFetchRequest(fetchRequest, error: nil)
-            return resultList.lastObject as TimeLapRecord
+            
+            if resultList.count > 0 {
+                latestRecord = resultList.lastObject as TimeLapRecord
+                return latestRecord
+            }
         }
         
         return latestRecord
@@ -85,7 +105,7 @@ class CoreDataAssistant: NSObject {
         if context != nil {
             if context.hasChanges && !context.save(&error) {
                 // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. 
+                // abort() causes the application to generate a crash log and terminate.
                 // You should not use this function in a shipping application, although it may be useful during development.
                 
                 NSLog("Unresolved error \(error)")
