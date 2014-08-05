@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FE06623B199076EC0067F930 /* TimeLapRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE06623A199076EC0067F930 /* TimeLapRecord.swift */; };
+		FE06623D1990A2E70067F930 /* TimeLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE06623C1990A2E70067F930 /* TimeLogViewController.swift */; };
 		FE2E1B48198F5A7500C76C54 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E1B47198F5A7500C76C54 /* CoreDataStore.swift */; };
 		FE2E1B4A198F659D00C76C54 /* LapTimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E1B49198F659D00C76C54 /* LapTimeTableView.swift */; };
 		FE4066EE19872905000EC6D1 /* TimeLapRecord_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4066ED19872905000EC6D1 /* TimeLapRecord_Extension.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		FE06623A199076EC0067F930 /* TimeLapRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeLapRecord.swift; path = CoreData/TimeLapRecord.swift; sourceTree = "<group>"; };
+		FE06623C1990A2E70067F930 /* TimeLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLogViewController.swift; sourceTree = "<group>"; };
 		FE2E1B47198F5A7500C76C54 /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStore.swift; path = CoreData/CoreDataStore.swift; sourceTree = "<group>"; };
 		FE2E1B49198F659D00C76C54 /* LapTimeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LapTimeTableView.swift; sourceTree = "<group>"; };
 		FE4066E9198720AB000EC6D1 /* TestSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestSwift-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				FEF2645919863390008249B0 /* Timer State */,
 				FE66D3901981EB9200E77537 /* AppDelegate.swift */,
 				FE66D3951981EB9200E77537 /* TimerViewController.swift */,
+				FE06623C1990A2E70067F930 /* TimeLogViewController.swift */,
 				FE2E1B49198F659D00C76C54 /* LapTimeTableView.swift */,
 				FE66D3971981EB9200E77537 /* Main.storyboard */,
 				FE66D39A1981EB9200E77537 /* Images.xcassets */,
@@ -259,6 +262,7 @@
 				FE4066EE19872905000EC6D1 /* TimeLapRecord_Extension.swift in Sources */,
 				FEF2645D19863423008249B0 /* TimerRunning.swift in Sources */,
 				FE2E1B48198F5A7500C76C54 /* CoreDataStore.swift in Sources */,
+				FE06623D1990A2E70067F930 /* TimeLogViewController.swift in Sources */,
 				FEF2646319863453008249B0 /* TimerStop.swift in Sources */,
 				FE66D3961981EB9200E77537 /* TimerViewController.swift in Sources */,
 				FE4066F0198785C9000EC6D1 /* CoreDataAssistant.swift in Sources */,

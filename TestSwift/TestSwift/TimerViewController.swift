@@ -14,6 +14,7 @@ class TimerViewController: UIViewController {
     @IBOutlet var timeLabel: UILabel?
     @IBOutlet var startBtn: UIButton?
     @IBOutlet var resetBtn: UIButton?
+    @IBOutlet var logBtn: UIButton?
     
     @IBOutlet var lapTimeTableView: LapTimeTableView?
     
@@ -94,6 +95,17 @@ class TimerViewController: UIViewController {
     
     @IBAction func touchUpResetBtn() {
         timerDelegate!.touchUpResetBtn()
+    }
+    
+    @IBAction func touchUpLogBtn() {
+        performSegueWithIdentifier("showRunningLog", sender: "RunningLog")
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if sender.isEqualToString("RunningLog") {
+            var nextVC: TimeLogViewController = segue.destinationViewController as TimeLogViewController
+            nextVC.timerController = self
+        }
     }
     
     func checkTicTime() {

@@ -25,6 +25,7 @@ class TimerReset : NSObject, TimerProtocol {
             self.timerController!.startBtn!.setTitle("Start", forState: UIControlState.Normal)
             self.timerController!.resetBtn!.setTitle("Reset", forState: UIControlState.Normal)
             self.timerController!.resetBtn!.enabled = false
+            self.timerController!.logBtn!.enabled = true
         }
     }
     

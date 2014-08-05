@@ -45,8 +45,24 @@ class CoreDataAssistant: NSObject {
         return _backgroundContext!
     }
     
+    func fetchLatestRound() -> NSArray {
+        
+        var resultList: NSArray = NSArray()
+        
+        var fetchRequest: NSFetchRequest = NSFetchRequest(entityName: "TimeLapRecord")
+        if fetchRequest != nil {
+            var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "laptime", ascending: true)
+            fetchRequest.sortDescriptors = [sortDescriptor]
+            
+            resultList = managedObjectContext.executeFetchRequest(fetchRequest, error: nil)
+            
+            return resultList
+        }
+        
+        return resultList
+    }
     
-    func fetchAllRoundName() -> NSArray {
+    func fetchAllRound() -> NSArray {
         
         var resultList: NSArray = NSArray()
         

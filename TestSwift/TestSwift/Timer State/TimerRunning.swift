@@ -22,6 +22,7 @@ class TimerRunning : NSObject, TimerProtocol {
             self.timerController!.startBtn!.setTitle("Stop", forState: UIControlState.Normal)
             self.timerController!.resetBtn!.setTitle("Lap", forState: UIControlState.Normal)
             self.timerController!.resetBtn!.enabled = true
+            self.timerController!.logBtn!.enabled = false
         }
     }
     

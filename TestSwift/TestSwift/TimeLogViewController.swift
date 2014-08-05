@@ -1,19 +1,23 @@
 //
-//  LapTimeTableView.swift
+//  TimeLogViewController.swift
 //  TestSwift
 //
-//  Created by MB KWON on 2014. 8. 4..
+//  Created by MB KWON on 2014. 8. 5..
 //  Copyright (c) 2014년 UANGEL Corp. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class LapTimeTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
+class TimeLogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     weak var timerController: TimerViewController?
     
     var roundList: NSArray? = nil
+    
+    @IBAction func touchUpBackBtn() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         
@@ -37,11 +41,11 @@ class LapTimeTableView: UITableView, UITableViewDataSource, UITableViewDelegate 
             
             var dateComponents: NSDateComponents = currentCalendar.components(
                 NSCalendarUnit.CalendarUnitYear |
-                NSCalendarUnit.CalendarUnitMonth |
-                NSCalendarUnit.CalendarUnitDay |
-                NSCalendarUnit.CalendarUnitHour |
-                NSCalendarUnit.CalendarUnitMinute |
-                NSCalendarUnit.CalendarUnitSecond,
+                    NSCalendarUnit.CalendarUnitMonth |
+                    NSCalendarUnit.CalendarUnitDay |
+                    NSCalendarUnit.CalendarUnitHour |
+                    NSCalendarUnit.CalendarUnitMinute |
+                    NSCalendarUnit.CalendarUnitSecond,
                 fromDate: dataModel.roundname)
             
             var dateString: String = String().stringByAppendingFormat("%d년 %d월 %d일 %d시 %d분 %d초",
