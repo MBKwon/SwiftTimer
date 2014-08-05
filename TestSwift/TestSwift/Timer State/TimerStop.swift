@@ -29,6 +29,8 @@ class TimerStop : NSObject, TimerProtocol {
     }
     
     func touchUpResetBtn() {
+        self.timerController?.currentLapTimeRecord = nil
+        self.timerController?.exRunningTime = 0.0
         self.timerController!.timerDelegate = TimerReset(timerController: self.timerController);
     }
 }

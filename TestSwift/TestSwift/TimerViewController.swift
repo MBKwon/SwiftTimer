@@ -17,6 +17,27 @@ class TimerViewController: UIViewController {
     
     @IBOutlet var lapTimeTableView: LapTimeTableView?
     
+    var _coreStore: CoreDataStore? = nil
+    var coreStore: CoreDataStore {
+        if _coreStore == nil {
+            _coreStore = CoreDataStore()
+            
+            return _coreStore!
+        }
+        return _coreStore!
+    }
+    
+    var _coreDataHelper: CoreDataAssistant? = nil
+    var coreDataHelper: CoreDataAssistant {
+        if _coreDataHelper == nil {
+            _coreDataHelper = CoreDataAssistant()
+            return _coreDataHelper!
+        }
+        return _coreDataHelper!
+    }
+    
+    var currentLapTimeRecord: TimeLapRecord? = nil
+    
     
     var timerDelegate: TimerProtocol?
     var stopWatchTimer: NSTimer?
@@ -32,6 +53,8 @@ class TimerViewController: UIViewController {
     var exRunningTime: NSTimeInterval = 0.0
     var runningTime: NSTimeInterval = 0.0
     var stoppedTime: NSTimeInterval = 0.0
+    
+    var displayTime: NSTimeInterval = 0.0
     
     var startDate: NSDate?
     
@@ -60,6 +83,11 @@ class TimerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        lapTimeTableView!.timerController = self
+    }
+    
     @IBAction func touchUpStartBtn() {
         timerDelegate!.touchUpStartBtn()
     }
@@ -70,13 +98,14 @@ class TimerViewController: UIViewController {
     
     func checkTicTime() {
         
-        if !startDate {
+        if startDate == nil {
             startDate = NSDate()
         }
         
         runningTime = NSDate().timeIntervalSinceDate(startDate)
         runningTime += exRunningTime
-        timeLabel!.text = String().stringByAppendingFormat("%0.2lf", runningTime-stoppedTime)
+        displayTime = runningTime-stoppedTime
+        timeLabel!.text = String().stringByAppendingFormat("%0.2lf", displayTime)
         
     }
     

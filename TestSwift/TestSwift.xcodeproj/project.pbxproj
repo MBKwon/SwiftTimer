@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE06623B199076EC0067F930 /* TimeLapRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE06623A199076EC0067F930 /* TimeLapRecord.swift */; };
 		FE2E1B48198F5A7500C76C54 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E1B47198F5A7500C76C54 /* CoreDataStore.swift */; };
 		FE2E1B4A198F659D00C76C54 /* LapTimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2E1B49198F659D00C76C54 /* LapTimeTableView.swift */; };
-		FE4066EB198720AC000EC6D1 /* TimeLapRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4066EA198720AC000EC6D1 /* TimeLapRecord.swift */; };
 		FE4066EE19872905000EC6D1 /* TimeLapRecord_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4066ED19872905000EC6D1 /* TimeLapRecord_Extension.swift */; };
 		FE4066F0198785C9000EC6D1 /* CoreDataAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4066EF198785C9000EC6D1 /* CoreDataAssistant.swift */; };
 		FE66D3911981EB9200E77537 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66D3901981EB9200E77537 /* AppDelegate.swift */; };
@@ -35,10 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE06623A199076EC0067F930 /* TimeLapRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeLapRecord.swift; path = CoreData/TimeLapRecord.swift; sourceTree = "<group>"; };
 		FE2E1B47198F5A7500C76C54 /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStore.swift; path = CoreData/CoreDataStore.swift; sourceTree = "<group>"; };
 		FE2E1B49198F659D00C76C54 /* LapTimeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LapTimeTableView.swift; sourceTree = "<group>"; };
 		FE4066E9198720AB000EC6D1 /* TestSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestSwift-Bridging-Header.h"; sourceTree = "<group>"; };
-		FE4066EA198720AC000EC6D1 /* TimeLapRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeLapRecord.swift; path = CoreData/TimeLapRecord.swift; sourceTree = "<group>"; };
 		FE4066ED19872905000EC6D1 /* TimeLapRecord_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeLapRecord_Extension.swift; path = CoreData/TimeLapRecord_Extension.swift; sourceTree = "<group>"; };
 		FE4066EF198785C9000EC6D1 /* CoreDataAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataAssistant.swift; path = CoreData/CoreDataAssistant.swift; sourceTree = "<group>"; };
 		FE66D38B1981EB9200E77537 /* TestSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,7 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				FE66D3921981EB9200E77537 /* TestSwift.xcdatamodeld */,
-				FE4066EA198720AC000EC6D1 /* TimeLapRecord.swift */,
+				FE06623A199076EC0067F930 /* TimeLapRecord.swift */,
 				FE4066ED19872905000EC6D1 /* TimeLapRecord_Extension.swift */,
 				FE4066EF198785C9000EC6D1 /* CoreDataAssistant.swift */,
 				FE2E1B47198F5A7500C76C54 /* CoreDataStore.swift */,
@@ -258,7 +258,6 @@
 			files = (
 				FE4066EE19872905000EC6D1 /* TimeLapRecord_Extension.swift in Sources */,
 				FEF2645D19863423008249B0 /* TimerRunning.swift in Sources */,
-				FE4066EB198720AC000EC6D1 /* TimeLapRecord.swift in Sources */,
 				FE2E1B48198F5A7500C76C54 /* CoreDataStore.swift in Sources */,
 				FEF2646319863453008249B0 /* TimerStop.swift in Sources */,
 				FE66D3961981EB9200E77537 /* TimerViewController.swift in Sources */,
@@ -266,6 +265,7 @@
 				FEF2645B198633B3008249B0 /* TimerProtocol.swift in Sources */,
 				FE2E1B4A198F659D00C76C54 /* LapTimeTableView.swift in Sources */,
 				FE66D3911981EB9200E77537 /* AppDelegate.swift in Sources */,
+				FE06623B199076EC0067F930 /* TimeLapRecord.swift in Sources */,
 				FEF2646119863441008249B0 /* TimerReset.swift in Sources */,
 				FE66D3941981EB9200E77537 /* TestSwift.xcdatamodeld in Sources */,
 			);
@@ -384,9 +384,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: MB KWON (UKBRJU24LS)";
 				INFOPLIST_FILE = TestSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "BADF8060-0425-4EF9-9993-EF6641DC1E4C";
 				SWIFT_OBJC_BRIDGING_HEADER = "TestSwift/TestSwift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -398,9 +400,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: MB KWON (UKBRJU24LS)";
 				INFOPLIST_FILE = TestSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "BADF8060-0425-4EF9-9993-EF6641DC1E4C";
 				SWIFT_OBJC_BRIDGING_HEADER = "TestSwift/TestSwift-Bridging-Header.h";
 			};
 			name = Release;

@@ -13,38 +13,54 @@ class CoreDataAssistant: NSObject {
     
     var store: CoreDataStore = CoreDataStore()
     
-    var managedObjectContext: NSManagedObjectContext {
     
-    var objectContext: NSManagedObjectContext
-        
-        if self.managedObjectContext == nil {
+    var _managedObjectContext: NSManagedObjectContext? = nil
+    var managedObjectContext: NSManagedObjectContext {
+        if _managedObjectContext == nil {
             let coordinator = self.store.persistentStoreCoordinator
             if coordinator != nil {
-                objectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
-                objectContext.persistentStoreCoordinator = coordinator
+                _managedObjectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
+                _managedObjectContext?.persistentStoreCoordinator = coordinator
                 
-                return objectContext
+                return _managedObjectContext!
             }
         }
         
-        return self.managedObjectContext
+        return _managedObjectContext!
     }
     
-    var backgroundContext: NSManagedObjectContext {
     
-    var objectContext: NSManagedObjectContext
-        
-        if self.backgroundContext == nil {
+    var _backgroundContext: NSManagedObjectContext? = nil
+    var backgroundContext: NSManagedObjectContext {
+        if _backgroundContext == nil {
             let coordinator = self.store.persistentStoreCoordinator
             if coordinator != nil {
-                objectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.PrivateQueueConcurrencyType)
-                objectContext.persistentStoreCoordinator = coordinator
+                _backgroundContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.PrivateQueueConcurrencyType)
+                _backgroundContext?.persistentStoreCoordinator = coordinator
                 
-                return objectContext
+                return _backgroundContext!
             }
         }
         
-        return self.backgroundContext
+        return _backgroundContext!
+    }
+    
+    
+    func fetchAllRoundName() -> NSArray {
+        
+        var resultList: NSArray = NSArray()
+        
+        var fetchRequest: NSFetchRequest = NSFetchRequest(entityName: "TimeLapRecord")
+        if fetchRequest != nil {
+            var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "laptime", ascending: true)
+            fetchRequest.sortDescriptors = [sortDescriptor]
+            
+            resultList = managedObjectContext.executeFetchRequest(fetchRequest, error: nil)
+            
+            return resultList
+        }
+        
+        return resultList
     }
     
     
@@ -59,6 +75,7 @@ class CoreDataAssistant: NSObject {
                 
                 NSLog("Unresolved error \(error)")
                 abort()
+                
             } else if error == nil {
                 NSNotificationCenter.defaultCenter().postNotificationName(RELOAD_LAPTIME_TABLEVIEW, object: nil)
             }

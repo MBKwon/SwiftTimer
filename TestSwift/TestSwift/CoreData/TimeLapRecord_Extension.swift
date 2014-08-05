@@ -10,21 +10,33 @@ import Foundation
 
 extension TimeLapRecord {
     
-    func setNewRecordRound(roundName: NSString) {
+    func setNewRecordRound(roundName: NSDate) {
         self.roundname = roundName
     }
     
-    
-    func addNewLapTime(lapTime: NSString) {
+    func addNewLapTime(newLapTime: NSString) {
         
-        var lapTimeRecord:NSMutableArray = NSKeyedUnarchiver.unarchiveObjectWithData(laptime) as NSMutableArray
-        
-        if lapTimeRecord == nil {
-            lapTimeRecord = NSMutableArray()
+        var lapTimeRecords:NSMutableArray;
+        if laptime != nil {
+            lapTimeRecords = NSKeyedUnarchiver.unarchiveObjectWithData(laptime) as NSMutableArray
+            
+        } else {
+            lapTimeRecords = NSMutableArray()
         }
         
-        lapTimeRecord.addObject(lapTimeRecord)
+        lapTimeRecords.addObject(newLapTime)
         
-        laptime = NSKeyedArchiver.archivedDataWithRootObject(lapTimeRecord)
+        laptime = NSKeyedArchiver.archivedDataWithRootObject(lapTimeRecords)
+    }
+    
+    func getLapTimeList() -> NSArray {
+        
+        var lapTimeRecords:NSMutableArray;
+        if laptime != nil {
+            return NSKeyedUnarchiver.unarchiveObjectWithData(laptime) as NSArray
+            
+        } else {
+            return NSArray()
+        }
     }
 }

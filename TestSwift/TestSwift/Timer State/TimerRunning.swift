@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class TimerRunning : NSObject, TimerProtocol {
     
@@ -32,5 +33,14 @@ class TimerRunning : NSObject, TimerProtocol {
     
     func touchUpResetBtn() {
         // record lap time
+        if timerController?.currentLapTimeRecord == nil {
+            timerController?.currentLapTimeRecord = (NSEntityDescription.insertNewObjectForEntityForName("TimeLapRecord", inManagedObjectContext: timerController?.coreDataHelper.backgroundContext) as TimeLapRecord)
+            
+            timerController?.currentLapTimeRecord?.setNewRecordRound(NSDate())
+        }
+        
+        var timeRecord: String = String().stringByAppendingFormat("%0.2lf", timerController!.displayTime)
+        timerController?.currentLapTimeRecord?.addNewLapTime(timeRecord)
+        timerController?.coreDataHelper.saveContext()
     }
 }

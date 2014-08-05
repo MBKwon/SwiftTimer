@@ -11,10 +11,10 @@ import CoreData
 
 class CoreDataStore: NSObject {
     
-    let storeName = "SwiftTimerTimeCoreData"
-    let storeFileName = "SwiftTimerTimeCoreData.sqlite"
+    let storeName = "TestSwift"
+    let storeFileName = "TestSwift.sqlite"
     
-    init() {
+    override init() {
         super.init()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "contextDidSaveContext:", name: NSManagedObjectContextDidSaveNotification, object: nil)
     }
@@ -26,35 +26,35 @@ class CoreDataStore: NSObject {
     func contextDidSaveContext(notification: NSNotification) {
     }
     
+    var _managedObjectModel: NSManagedObjectModel? = nil
     var managedObjectModel: NSManagedObjectModel {
-    var objectModel: NSManagedObjectModel
-        
-        if self.managedObjectModel == nil {
+        if _managedObjectModel == nil {
             let modelURL = NSBundle.mainBundle().URLForResource(storeName, withExtension: "momd")
-            var objectModel: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: modelURL)
+            _managedObjectModel = NSManagedObjectModel(contentsOfURL: modelURL)
             
-            return objectModel
+            return _managedObjectModel!
             
         } else {
-            return self.managedObjectModel
+            return _managedObjectModel!
         }
     }
     
+    
+    var _persistentCoordinator: NSPersistentStoreCoordinator? = nil
     var persistentStoreCoordinator: NSPersistentStoreCoordinator {
-    var persistentCoordinator: NSPersistentStoreCoordinator
-        if self.persistentStoreCoordinator == nil {
+        if _persistentCoordinator == nil {
             
             let storeURL = self.applicationDocumentsDirectory.URLByAppendingPathComponent(storeFileName)
             var error: NSError? = nil
-            persistentCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-            if persistentCoordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil, error: &error) == nil {
+            _persistentCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
+            if _persistentCoordinator?.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil, error: &error) == nil {
                 abort()
             }
             
-            return persistentCoordinator
+            return _persistentCoordinator!
             
         } else {
-            return self.persistentStoreCoordinator
+            return _persistentCoordinator!
         }
     }
     

@@ -2,7 +2,7 @@
 //  TimeLapRecord.swift
 //  TestSwift
 //
-//  Created by MB KWON on 2014. 7. 29..
+//  Created by MB KWON on 2014. 8. 5..
 //  Copyright (c) 2014년 UANGEL Corp. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import CoreData
 
 class TimeLapRecord: NSManagedObject {
 
-    @NSManaged var roundname: String
     @NSManaged var laptime: NSData
+    @NSManaged var roundname: NSDate
 
 }
