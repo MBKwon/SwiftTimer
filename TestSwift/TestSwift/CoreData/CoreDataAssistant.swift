@@ -63,7 +63,8 @@ class CoreDataAssistant: NSObject {
     
     func fetchLatestRound() -> TimeLapRecord {
         
-        var latestRecord: TimeLapRecord = TimeLapRecord()
+        var entity: NSEntityDescription = NSEntityDescription.entityForName("TimeLapRecord", inManagedObjectContext: managedObjectContext)
+        var latestRecord: TestSwift.TimeLapRecord = TimeLapRecord(entity: entity, insertIntoManagedObjectContext: nil)
         
         var fetchRequest: NSFetchRequest = NSFetchRequest(entityName: "TimeLapRecord")
         if fetchRequest != nil {
@@ -73,7 +74,7 @@ class CoreDataAssistant: NSObject {
             var resultList: NSArray = managedObjectContext.executeFetchRequest(fetchRequest, error: nil)
             
             if resultList.count > 0 {
-                latestRecord = resultList.lastObject as TimeLapRecord
+                latestRecord = resultList.lastObject as TestSwift.TimeLapRecord
                 return latestRecord
             }
         }
@@ -103,16 +104,20 @@ class CoreDataAssistant: NSObject {
     func saveContext (context: NSManagedObjectContext) {
         var error: NSError? = nil
         if context != nil {
-            if context.hasChanges && !context.save(&error) {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate.
-                // You should not use this function in a shipping application, although it may be useful during development.
+            if context.hasChanges {
                 
-                NSLog("Unresolved error \(error)")
-                abort()
-                
-            } else if error == nil {
-                NSNotificationCenter.defaultCenter().postNotificationName(RELOAD_LAPTIME_TABLEVIEW, object: nil)
+                context.performBlock({ () -> Void in
+                    context.save(&error)
+                    if error == nil {
+                        
+                        self.managedObjectContext.performBlock({ () -> Void in
+                            self.managedObjectContext.save(&error)
+                            if error == nil {
+                                NSNotificationCenter.defaultCenter().postNotificationName(RELOAD_LAPTIME_TABLEVIEW, object: nil)
+                            }
+                        })
+                    }
+                })
             }
         }
     }

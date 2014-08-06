@@ -67,5 +67,7 @@ class TimeLogViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         var cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)
         cell.selected = false
+        
+        performSegueWithIdentifier("showDetailLog", sender: nil)
     }
 }
