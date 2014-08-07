@@ -11,7 +11,7 @@ import UIKit
 
 class TimeLogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    weak var timerController: TimerViewController?
+    weak var timerController: TimerViewController!
     
     var roundList: NSArray? = nil
     
@@ -21,7 +21,7 @@ class TimeLogViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         
-        roundList = timerController?.coreDataHelper.fetchAllRound()
+        roundList = timerController.coreDataHelper.fetchAllRound()
         
         if roundList != nil {
             return roundList!.count;

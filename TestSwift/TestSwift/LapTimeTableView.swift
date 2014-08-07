@@ -11,14 +11,14 @@ import UIKit
 
 class LapTimeTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     
-    weak var timerController: TimerViewController?
+    weak var timerController: TimerViewController!
     
     var lapTimeList: NSArray? = nil
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         
-        if timerController?.coreDataHelper.isExistAnyRecord() == true {
-            var lapTimes: TestSwift.TimeLapRecord = timerController!.coreDataHelper.fetchLatestRound()
+        if timerController.coreDataHelper.isExistAnyRecord() == true {
+            var lapTimes: TestSwift.TimeLapRecord = timerController.coreDataHelper.fetchLatestRound()
             
             if lapTimes != nil {
                 lapTimeList = lapTimes.getLapTimeList()
