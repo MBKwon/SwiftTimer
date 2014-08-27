@@ -10,13 +10,13 @@ import UIKit
 
 class TimerViewController: UIViewController {
     
-    @IBOutlet var stateLabel: UILabel?
-    @IBOutlet var timeLabel: UILabel?
-    @IBOutlet var startBtn: UIButton?
-    @IBOutlet var resetBtn: UIButton?
-    @IBOutlet var logBtn: UIButton?
+    @IBOutlet weak var stateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var startBtn: UIButton!
+    @IBOutlet weak var resetBtn: UIButton!
+    @IBOutlet weak var logBtn: UIButton!
     
-    @IBOutlet var lapTimeTableView: LapTimeTableView?
+    @IBOutlet weak var lapTimeTableView: LapTimeTableView!
     
     var _coreStore: CoreDataStore? = nil
     var coreStore: CoreDataStore {
@@ -114,7 +114,7 @@ class TimerViewController: UIViewController {
             startDate = NSDate()
         }
         
-        runningTime = NSDate().timeIntervalSinceDate(startDate)
+        runningTime = NSDate().timeIntervalSinceDate(startDate!)
         runningTime += exRunningTime
         displayTime = runningTime-stoppedTime
         timeLabel!.text = String().stringByAppendingFormat("%0.2lf", displayTime)

@@ -14,7 +14,7 @@ class TimerStop : NSObject, TimerProtocol {
     weak var timerController: TimerViewController?
     
     init(timerController: TimerViewController!) {
-        if timerController {
+        if (timerController != nil) {
             self.timerController = timerController
             self.timerController!.stateLabel!.text = "Stop State"
             
@@ -24,8 +24,10 @@ class TimerStop : NSObject, TimerProtocol {
     }
     
     func touchUpStartBtn() {
-        NSRunLoop.mainRunLoop().addTimer(timerController?.stopWatchTimer, forMode: NSDefaultRunLoopMode)
-        self.timerController!.timerDelegate = TimerRunning(timerController: self.timerController);
+        if let stopTimer = timerController?.stopWatchTimer {
+            NSRunLoop.mainRunLoop().addTimer(stopTimer, forMode: NSDefaultRunLoopMode)
+            self.timerController!.timerDelegate = TimerRunning(timerController: self.timerController);
+        }
     }
     
     func touchUpResetBtn() {

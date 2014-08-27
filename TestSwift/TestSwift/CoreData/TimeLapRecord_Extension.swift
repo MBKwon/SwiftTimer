@@ -17,12 +17,7 @@ extension TimeLapRecord {
     func addNewLapTime(newLapTime: NSString) {
         
         var lapTimeRecords:NSMutableArray;
-        if laptime != nil {
             lapTimeRecords = NSKeyedUnarchiver.unarchiveObjectWithData(laptime) as NSMutableArray
-            
-        } else {
-            lapTimeRecords = NSMutableArray()
-        }
         
         lapTimeRecords.addObject(newLapTime)
         
@@ -32,11 +27,6 @@ extension TimeLapRecord {
     func getLapTimeList() -> NSArray {
         
         var lapTimeRecords:NSMutableArray;
-        if laptime != nil {
-            return NSKeyedUnarchiver.unarchiveObjectWithData(laptime) as NSArray
-            
-        } else {
-            return NSArray()
-        }
+        return NSKeyedUnarchiver.unarchiveObjectWithData(laptime) as NSArray
     }
 }

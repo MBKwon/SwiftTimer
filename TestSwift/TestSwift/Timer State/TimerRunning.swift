@@ -15,7 +15,7 @@ class TimerRunning : NSObject, TimerProtocol {
     weak var timerController: TimerViewController?
     
     init(timerController: TimerViewController!) {
-        if timerController {
+        if timerController != nil {
             self.timerController = timerController
             self.timerController!.stateLabel!.text = "Running State"
             
